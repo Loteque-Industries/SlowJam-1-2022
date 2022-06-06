@@ -54,8 +54,10 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 
 shape = SubResource( 19 )
 
 [node name="SpringArm" type="SpringArm" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 spring_length = 7.0
 margin = 0.2
 script = ExtResource( 1 )
 
 [node name="Camera" type="Camera" parent="SpringArm"]
+fov = 80.0
