@@ -35,7 +35,7 @@ shader = SubResource( 21 )
 
 [sub_resource type="CapsuleShape" id=19]
 
-[node name="Player1" type="KinematicBody"]
+[node name="Player" type="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 2 )
 
@@ -54,7 +54,6 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 
 shape = SubResource( 19 )
 
 [node name="SpringArm" type="SpringArm" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 spring_length = 7.0
 margin = 0.2
 script = ExtResource( 1 )

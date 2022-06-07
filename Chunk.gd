@@ -51,6 +51,20 @@ func generate():
 	self.mesh = mesh
 	self.cast_shadow = 1
 	
+func create_collider():
+	var shape = ConcavePolygonShape.new()
+	shape.set_faces(PoolVector3Array(vertices))
+	
+	var cs = CollisionShape.new()
+	cs.set_shape(shape)
+	
+	var sb = StaticBody.new()
+	sb.collision_layer = 1
+	sb.collision_mask = 2
+	sb.add_child(cs)
+	
+	add_child(sb)
+	
 func generate_quad(position: Vector3, size: Vector2):
 	vertices.push_back(create_vertex(position.x, position.z + size.y))
 	vertices.push_back(create_vertex(position.x, position.z))
