@@ -10,11 +10,11 @@
 ### Mechanics:
 * Build a fantasy goat part by part, chosen from a goat part ui.
 * Parts List:
- * Horns
- * Ears
- * Tail
- * Beards
- * others
+  * Horns
+  * Ears
+  * Tail
+  * Beards
+  * others
 * The right combination of parts triggers a combo splash animation and unlocks a new part.
 	
 * Once the player has a goat they like they can release their goat to roam an open world.
