@@ -19,7 +19,7 @@ func _ready():
 	noise.seed = randi()
 	noise.octaves = 1
 	noise.period = 20.0
-	noise.persistence = 0.2
+	noise.persistence = 0.7
 	
 	player_chunk_grid_position = get_chunk_grid_position_for(player.translation)
 	
