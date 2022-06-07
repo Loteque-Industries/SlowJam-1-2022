@@ -30,10 +30,10 @@
 ### Game start:
 * The Player loads into a main menu
 * Main Menu Selctions:
- * Build Goat
- * Goat World
- * Options
- * Credits
+  * Build Goat
+  * Goat World
+  * Options
+  * Credits
 
 	
 ### Main Game Loop:
