@@ -132,7 +132,7 @@ script = ExtResource( 3 )
 material = SubResource( 19 )
 
 [node name="FakeFloor" type="MeshInstance" parent="."]
-transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -0.7, 0 )
+transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 6 )
 
