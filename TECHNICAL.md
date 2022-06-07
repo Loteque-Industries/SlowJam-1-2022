@@ -12,7 +12,7 @@
 
 * Infinite Terrain Generation
 * Generate Terrain height ranges based on world origin
-* Mixing had placed and procedurally placed props
+* Mixing hand placed and procedurally placed props
 * Terrain Subtraction on prop interior (building, caves, etc...)
 * Creature Flocking, boidss
 * Minimal UI by maximizing those functions in world
