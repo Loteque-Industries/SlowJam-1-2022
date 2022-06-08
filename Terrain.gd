@@ -13,7 +13,7 @@ var player_chunk_grid_position : Vector2
 
 
 
-func _ready():
+func _ready() -> void:
 	randomize()
 	noise = OpenSimplexNoise.new()
 	noise.seed = randi()
