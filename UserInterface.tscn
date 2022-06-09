@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Fonts/PTSans-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://PlayButton.gd" type="Script" id=2]
+[ext_resource path="res://UserInterface.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -11,6 +11,7 @@ font_data = ExtResource( 1 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 
 [node name="MainMenu" type="ColorRect" parent="."]
 pause_mode = 2
@@ -37,26 +38,27 @@ size_flags_horizontal = 0
 custom_fonts/font = SubResource( 1 )
 text = "Play"
 align = 0
-script = ExtResource( 2 )
 
-[node name="ContinueMenu" type="ColorRect" parent="."]
+[node name="PauseMenu" type="ColorRect" parent="."]
+pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 
-[node name="MarginContainer" type="MarginContainer" parent="ContinueMenu"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
 margin_left = 60.0
 margin_top = 400.0
 margin_right = 1017.0
 margin_bottom = 593.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContinueMenu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
 margin_right = 957.0
 margin_bottom = 193.0
 
-[node name="ContinueButton" type="MenuButton" parent="ContinueMenu/MarginContainer/VBoxContainer"]
-margin_right = 174.0
+[node name="ContinueButton" type="MenuButton" parent="PauseMenu/MarginContainer/VBoxContainer"]
+margin_right = 88.0
 margin_bottom = 61.0
 focus_mode = 2
 size_flags_horizontal = 0
@@ -64,14 +66,15 @@ custom_fonts/font = SubResource( 1 )
 text = "Continue"
 align = 0
 
-[node name="QuitButton" type="MenuButton" parent="ContinueMenu/MarginContainer/VBoxContainer"]
-margin_top = 65.0
-margin_right = 89.0
-margin_bottom = 126.0
+[node name="QuitButton" type="MenuButton" parent="PauseMenu/MarginContainer/VBoxContainer"]
+margin_right = 88.0
+margin_bottom = 61.0
 focus_mode = 2
 size_flags_horizontal = 0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 align = 0
 
-[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/PlayButton" to="MainMenu/MarginContainer/VBoxContainer/PlayButton" method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
