@@ -7,6 +7,10 @@ var next_chunks := {}
 
 var noise : OpenSimplexNoise
 export var material: Material
+export var noise_octaves: int
+export var noise_period: float
+export var noise_persistance: float
+
 
 onready var player = Globals.player
 var player_chunk_grid_position : Vector2
@@ -17,9 +21,9 @@ func _ready() -> void:
 	randomize()
 	noise = OpenSimplexNoise.new()
 	noise.seed = randi()
-	noise.octaves = 1
-	noise.period = 20.0
-	noise.persistence = 0.7
+	noise.octaves = noise_octaves
+	noise.period = noise_period
+	noise.persistence = noise_persistance
 	
 	player_chunk_grid_position = get_chunk_grid_position_for(player.translation)
 	

@@ -3,10 +3,12 @@ extends Node
 export(bool) var can_toggle_pause: bool = true
 var main_menu
 var pause_menu
+var goatinator_menu
 
 func _ready() -> void:
 	main_menu = get_tree().get_root().find_node("MainMenu", true, false)
 	pause_menu = get_tree().get_root().find_node("PauseMenu", true, false)
+	goatinator_menu = get_tree().get_root().find_node("GoatinatorMenu", true, false)
 	
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	main_menu.show()
@@ -16,6 +18,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("start_menu"):
 		if !get_tree().paused:
 			pause()
+		elif goatinator_menu.visible == true:
+			goatinator_menu.hide()
 		else:
 			resume()
 
