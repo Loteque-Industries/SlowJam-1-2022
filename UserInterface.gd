@@ -24,11 +24,3 @@ func _on_ContinueButton_pressed() -> void:
 func _on_QuitButton_pressed() -> void:
 	pause_menu.hide()
 	get_tree().quit()
-
-
-func _on_Area_body_entered(body: Node) -> void:
-	print("goatinator entered")
-	goatinator_menu.show()
-
-func _on_Area_body_exited(body: Node) -> void:
-	print("goatinator exited")

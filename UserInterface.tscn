@@ -1,12 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/PTSans-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://GoatinatorMenu.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/PTSans-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UserInterface.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 27
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [node name="UserInterface" type="Control"]
 pause_mode = 2
@@ -18,8 +29,16 @@ script = ExtResource( 4 )
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0 )
+color = Color( 0, 0, 0, 0.301961 )
 script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="GoatinatorMenu"]
+anchor_right = 1.0
+margin_bottom = 52.0
+custom_fonts/font = SubResource( 3 )
+text = "Goatinator"
+align = 1
+valign = 1
 
 [node name="MainMenu" type="ColorRect" parent="."]
 pause_mode = 2
@@ -82,6 +101,17 @@ size_flags_horizontal = 0
 custom_fonts/font = SubResource( 1 )
 text = "Quit"
 align = 0
+
+[node name="InteractionLabel" type="Label" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -42.0
+custom_fonts/font = SubResource( 2 )
+text = "Press E to interact"
+align = 1
+valign = 1
 
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]

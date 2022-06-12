@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Chunk",
 "language": "GDScript",
 "path": "res://Chunk.gd"
+}, {
+"base": "Node",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://Interactable.gd"
 } ]
 _global_script_class_icons={
-"Chunk": ""
+"Chunk": "",
+"Interactable": ""
 }
 
 [application]

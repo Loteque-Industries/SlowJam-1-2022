@@ -1,6 +1,7 @@
 extends Node
 
 var player
+var interaction_label
 
 const QUAD_SIZE := 2
 const CHUNK_QUAD_COUNT := 50
