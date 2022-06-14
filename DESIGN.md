@@ -1,49 +1,52 @@
-TITLE: UNTITLED GOAT GAME
+# TITLE: UNTITLED GOAT GAME
 
-Perspective: First Person
+### Perspective: 
+* First Person
 
-Mechanics:
+### Style:
+* Low Poly, Fantasy, Bold colors, maybe cell shading.
+![Desgin Board 1](GameJam-GOATS.png)
 	
-	Goats in the same pen will breed with eachother at random
+### Mechanics:
+* Build a fantasy goat part by part, chosen from a goat part ui.
+* Parts List:
+  * Horns
+  * Ears
+  * Tail
+  * Beards
+  * others
+* The right combination of parts triggers a combo splash animation and unlocks a new part.
 	
-	Each goat has a secret recesive trait
+* Once the player has a goat they like they can release their goat to roam an open world.
 	
-	Player starts with at leasst one goat with a Monster goat recesive trait
+* The player can vist the open world at anytime from the main menu.
 	
-	When two goats with that hidden trait breed, the monster goat will appear and eat other goats at random and ignores pen boundries untill the player redues the monsters HP to 0.
+* The player can summon their goats from anywhere to their current location in the world.
 	
-	Player can use staff to chase and hit monster to prevent it from eating goats.
-	
-	Breeding close relatives produces a higher chance of offpsring with recesive traits.
-	
-	Traits come in rarities with higher rarities being less likely 
-	
-	Rarities: common, uncommon, rare, super, ultra, super ultra, super ultra rare
+* The goats use boids to simulate flocking.	 
 
-Game start:
+* The player can "push" or "pull" the goat flock.
 
-	Player makes a goat
-	
-	Player gets two random goats with 1 goat having the hidden monster goat trait
+### Game start:
+* The Player loads into a main menu
+* Main Menu Selctions:
+  * Build Goat
+  * Goat World
+  * Options
+  * Credits
 
-Game Loop:
 	
+### Main Game Loop:
+* build Goat
+* release Goat into players world
+* build more Goats
+* visit world and free play with goats
 	
-	They are randomly placed in pairs, each pair in one of two pens
+### Inner Game loop:
+* pick goat parts to add to goat
+* combination of parts triggers new part unlock
+* new part is added to builder menu
+* use new part to form new combination that may unlock a new part
+* repeat until player likes their goat
+* player saves goat into open world
 	
-	A timed round starts
-	
-	Player tries to keep goats sperated which they don't want to breed together
-	
-	If monster goat shows up player must defend as many goats as possible
-	
-	At the end of the round player will pick and sell goats for money
-	
-	Goats are worth an amount of money based on the total rarity of their traits
-	
-	Bonus: a neighbor shows up asking for a goat with a specific trait offering a big reward, the bonus offer lasts for a number of rounds depending on the rarity of the trait.
-	
-	After selling goats for money player will purchase more pens and/or upgrades to the shepherds staff
-	
-	Loop starts again
-
