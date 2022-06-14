@@ -5,7 +5,7 @@ export var mouse_sensitivity := 2000
 onready var Player := get_parent() as KinematicBody
 
 func _enter_tree() -> void:
-	Input.set_mouse_mode Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _exit_tree() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
