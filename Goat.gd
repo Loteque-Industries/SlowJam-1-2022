@@ -3,13 +3,14 @@ extends KinematicBody
 export var acceleration = 4
 export var speed = 99
 export var gravity = 0.98
+
 var space_state
 var target
 var velocity = Vector3()
 
 func _ready() -> void:
 	space_state = get_world().direct_space_state
-
+	
 func _process(delta: float) -> void:
 	if target:
 		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)

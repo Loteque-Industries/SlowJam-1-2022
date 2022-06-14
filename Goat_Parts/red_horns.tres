@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://GoatPartStats.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[sub_resource type="SphereMesh" id=2]
+
+[resource]
+script = ExtResource( 1 )
+part_name = ""
+color = Color( 1, 0, 0, 1 )
+mesh = SubResource( 2 )
+material = SubResource( 1 )
