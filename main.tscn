@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ProtoFloorMaterial.tres" type="Shader" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://PauseController.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UserInterface.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Goatinator.tscn" type="PackedScene" id=7]
-[ext_resource path="res://BaseGoat.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ShaderMaterial" id=17]
 shader = ExtResource( 1 )
@@ -37,5 +36,3 @@ noise_persistance = 0.7
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00813, -1.2265 )
-
-[node name="BaseGoat" parent="." instance=ExtResource( 8 )]

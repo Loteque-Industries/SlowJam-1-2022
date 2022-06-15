@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://GoatPartStats.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[resource]
+script = ExtResource( 1 )
+part_name = "blue_horns"
+color = Color( 0.180392, 0.364706, 0.862745, 1 )
+material = SubResource( 1 )
