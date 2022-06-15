@@ -181,7 +181,7 @@ pause_mode = 2
 margin_top = 24.0
 margin_right = 221.0
 margin_bottom = 44.0
-text = "red horns"
+text = "blue_horns"
 script = ExtResource( 2 )
 part_name = "blue_horns"
 

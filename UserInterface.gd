@@ -3,7 +3,7 @@ extends Control
 var main_menu
 var pause_menu
 var goatinator_menu
-var i = 0
+var i := 0
 
 func _ready() -> void:
 	main_menu = get_tree().get_root().find_node("MainMenu", true, false)
