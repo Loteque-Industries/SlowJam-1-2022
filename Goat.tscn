@@ -16,6 +16,7 @@
 [sub_resource type="CylinderMesh" id=27]
 
 [node name="Goat" type="KinematicBody"]
+pause_mode = 1
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 script = ExtResource( 1 )
 acceleration = 3

@@ -3,9 +3,7 @@ extends Control
 var main_menu
 var pause_menu
 var goatinator_menu
-
-onready var goatinator = get_tree().get_root().find_node("Goatinator", true, false)
-var goat = preload("res://Goat.tscn")
+var i = 0
 
 func _ready() -> void:
 	main_menu = get_tree().get_root().find_node("MainMenu", true, false)
@@ -38,8 +36,6 @@ func _on_ShutdownGoatinatorButton_pressed() -> void:
 		get_tree().set_deferred("paused", false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	#spawn the goat on exit
-	var newGoat = goat.instance()
-	newGoat.transform.origin = goatinator.transform.origin
-	get_node("/root/main").add_child(newGoat)
-	
+	#signal to spawn the goat on exit
+	Events.emit_signal("spawn_goat", "goat" + str(i))
+	i = i + 1

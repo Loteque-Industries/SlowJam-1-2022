@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fonts/PTSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GoatPartButton.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/PTSans-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UserInterface.gd" type="Script" id=4]
 [ext_resource path="res://BaseGoat.tscn" type="PackedScene" id=5]
@@ -150,12 +151,12 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="GoatinatorMenu/MarginContainer"]
-margin_right = 234.0
-margin_bottom = 440.0
+margin_right = 233.0
+margin_bottom = 439.0
 mouse_filter = 1
 
 [node name="Control" type="Control" parent="GoatinatorMenu/MarginContainer/ScrollContainer"]
-margin_right = 222.0
+margin_right = 221.0
 margin_bottom = 900.0
 rect_min_size = Vector2( 0, 900 )
 mouse_filter = 1
@@ -167,11 +168,22 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RedHornButton" type="MenuButton" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
-margin_right = 222.0
+[node name="Button" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+pause_mode = 2
+margin_right = 221.0
 margin_bottom = 20.0
-text = "Red Horns"
-flat = false
+text = "red horns"
+script = ExtResource( 2 )
+part_name = "red_horns"
+
+[node name="Button2" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+pause_mode = 2
+margin_top = 24.0
+margin_right = 221.0
+margin_bottom = 44.0
+text = "red horns"
+script = ExtResource( 2 )
+part_name = "blue_horns"
 
 [node name="Control" type="Control" parent="GoatinatorMenu"]
 anchor_top = 1.0
