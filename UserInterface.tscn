@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/PTSans-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://GoatPartButton.gd" type="Script" id=2]
+[ext_resource path="res://GoatBodyButton.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/PTSans-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UserInterface.gd" type="Script" id=4]
 [ext_resource path="res://BaseGoat.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GoatHornsButton.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 42
@@ -202,6 +203,15 @@ margin_bottom = 44.0
 text = "Blue Goat"
 script = ExtResource( 2 )
 part_name = "blue_goat"
+
+[node name="Button5" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+pause_mode = 2
+margin_top = 48.0
+margin_right = 221.0
+margin_bottom = 68.0
+text = "Blue Horns"
+script = ExtResource( 6 )
+part_name = "blue_horns"
 
 [node name="Control" type="Control" parent="GoatinatorMenu"]
 anchor_top = 1.0
