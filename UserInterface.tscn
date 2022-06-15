@@ -170,20 +170,38 @@ size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
+visible = false
 margin_right = 221.0
 margin_bottom = 20.0
-text = "red horns"
+text = "Yellow Goat"
 script = ExtResource( 2 )
-part_name = "red_horns"
+part_name = "yellow_goat"
 
 [node name="Button2" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+pause_mode = 2
+visible = false
+margin_right = 221.0
+margin_bottom = 20.0
+text = "Green Goat"
+script = ExtResource( 2 )
+part_name = "green_goat"
+
+[node name="Button3" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+pause_mode = 2
+margin_right = 221.0
+margin_bottom = 20.0
+text = "Red Goat"
+script = ExtResource( 2 )
+part_name = "red_goat"
+
+[node name="Button4" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
 margin_top = 24.0
 margin_right = 221.0
 margin_bottom = 44.0
-text = "blue_horns"
+text = "Blue Goat"
 script = ExtResource( 2 )
-part_name = "blue_horns"
+part_name = "blue_goat"
 
 [node name="Control" type="Control" parent="GoatinatorMenu"]
 anchor_top = 1.0
