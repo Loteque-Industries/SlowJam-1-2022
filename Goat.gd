@@ -8,11 +8,7 @@ var space_state
 var target
 var velocity = Vector3()
 
-var goat = load("res://Goat.tscn")
-onready var goatinator = get_tree().get_root().find_node("Goatinator", true, false)
-
 func _ready() -> void:
-	Events.connect("spawn_goat", self, "_on_goat_spawn")
 	space_state = get_world().direct_space_state
 	
 func _process(delta: float) -> void:
@@ -23,7 +19,7 @@ func _process(delta: float) -> void:
 			move_to_target(delta)
 		else:
 			pass
-			
+
 func _on_Area_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		target = body
@@ -33,25 +29,7 @@ func _on_Area_body_exited(body: Node) -> void:
 	if body.is_in_group("Player"):
 		target = null
 		print(body.name + " exited")
-	
-func _on_goat_spawn(goat_name) -> void:
-	var horns = load("res://Goat_Parts/red_horns.tres")
-	var new_goat = goat.instance()
-	var new_horns = new_goat.get_node("Horns")
-	var material = horns.material
-	material.albedo_color = horns.color
-	new_horns.set_surface_material(0, material)
-	new_goat.transform.origin = goatinator.transform.origin
-	get_node("/root/main").add_child(new_goat)
 
-# func _on_update_horns(part_name):
-#	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-#	var part = get_node(".")
-#	var material = part_data.material
-#	var mesh = part_data.mesh
-#	material.albedo_color = part_data.color
-#	part.set_surface_material(0, material)
-	
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
 	velocity.y -= gravity
