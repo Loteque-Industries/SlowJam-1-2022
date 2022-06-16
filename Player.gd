@@ -9,6 +9,8 @@ export var mouse_sensitivity = 0.3
 onready var head = $Head
 onready var camera = $Head/Camera
 
+var target
+var space_state
 var velocity = Vector3()
 var camera_x_rotation = 0
 
@@ -20,11 +22,14 @@ func _input(event: InputEvent) -> void:
 		if camera_x_rotation + x_delta > -92 and camera_x_rotation + x_delta < 89:
 			camera.rotate_x(deg2rad(-x_delta))
 			camera_x_rotation += x_delta
+
+func _ready() -> void:
+	space_state = get_world().direct_space_state
 		
 func _physics_process(delta: float) -> void:
+	var direction = Vector3()
 	var head_basis = head.get_global_transform().basis
 	
-	var direction = Vector3()
 	if Input.is_action_pressed("forward"):
 		direction -= head_basis.z
 	elif Input.is_action_pressed("back"):
@@ -35,6 +40,14 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("right"):
 		direction += head_basis.x
 		
+	if target:
+		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
+		if result.collider.is_in_group("Goat"):
+			direction = target.global_transform.origin
+			direction = direction.normalized()
+			velocity.y -= gravity
+			velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+			
 	direction = direction.normalized()
 	velocity.y -= gravity
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
@@ -42,4 +55,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jump_power
 	
-	velocity = move_and_slide(velocity, Vector3.UP)
+	velocity = move_and_slide(velocity, Vector3.UP, true)
+
+func _on_Area_body_entered(body: Node) -> void:
+	if body.is_in_group("Goat"):
+		target = body
+		print(body.name + " entered")
+
+func _on_Area_body_exited(body: Node) -> void:
+	if body.is_in_group("Goat"):
+		target = null
+		print(body.name + " exited")

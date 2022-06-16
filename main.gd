@@ -4,6 +4,11 @@ export (SpatialMaterial) var select_material
 
 var goat_parts = {"horns": "", "ears": "red_ears", "body": "", "tail": ""}
 
+onready var TexBaseColor = preload("res://Textures/T_GoatBase_BaseColor.png")
+onready var TexNormal = preload("res://Textures/T_GoatBase_Normal.png")
+onready var TexRoughness = preload("res://Textures/T_GoatBase_Roughness.png")
+onready var TexHeight = preload("res://Textures/T_GoatBase_Height.png")
+
 onready var yellow_goat_button = get_node("UserInterface/GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer/Button")
 onready var green_goat_button = get_node("UserInterface/GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer/Button2")
 onready var factory = preload("res://BaseGoat.tscn").instance()
@@ -17,14 +22,21 @@ func _ready() -> void:
 func _on_goat_spawn(goat_name) -> void:
 	var new_goat = factory.generate_goat(0)
 	#var ears = new_goat.get_child(2)
-	var horns = new_goat.generate_goat(3)
+	var horns = new_goat.get_child(3)
 	var body = new_goat.get_child(4)
 	#var tail = new_goat.generate_tail(5)
 	var material = SpatialMaterial.new()
+	
+	#apply goat body material
 	material.albedo_color = select_material.albedo_color
+	material.albedo_texture = TexBaseColor
+	material.normal_enabled = true
+	material.normal_texture = TexNormal
+	material.roughness_texture = TexRoughness
 	body.set_surface_material(0, material)
 	new_goat.transform.origin = goatinator.transform.origin
 	
+	#apply goat horn material 
 	material = SpatialMaterial.new()
 	material.albedo_color = select_material.albedo_color
 	horns.set_surface_material(0, material)

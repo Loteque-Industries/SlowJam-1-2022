@@ -1,37 +1,49 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Goat.gd" type="Script" id=1]
 [ext_resource path="res://Mesh/GoatBassLow.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Textures/T_GoatBase_Normal.png" type="Texture" id=3]
+[ext_resource path="res://Textures/T_GoatBase_Roughness.png" type="Texture" id=4]
+[ext_resource path="res://Textures/T_GoatBase_BaseColor.png" type="Texture" id=5]
+[ext_resource path="res://Textures/T_GoatBase_Height.png" type="Texture" id=6]
 
-[sub_resource type="CapsuleShape" id=29]
-radius = 0.4718
-height = 0.549011
+[sub_resource type="BoxShape" id=32]
 
 [sub_resource type="SphereMesh" id=30]
 
 [sub_resource type="SphereMesh" id=25]
 
 [sub_resource type="SpatialMaterial" id=31]
+albedo_texture = ExtResource( 5 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.88
+normal_texture = ExtResource( 3 )
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource( 6 )
+ao_on_uv2 = false
+ao_texture_channel = 0
 
 [sub_resource type="CylinderMesh" id=27]
 
-[node name="Goat" type="KinematicBody"]
+[node name="Goat" type="KinematicBody" groups=["Goat"]]
 pause_mode = 1
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 script = ExtResource( 1 )
 acceleration = 3
 speed = 8
 
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.315972, 0 )
+shape = SubResource( 32 )
+
 [node name="Area" type="Area" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0622135, -2.431 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.48185e-08, 0.0986578, -2.14711 )
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.18261, 0, -1.55081e-07 )
 polygon = PoolVector2Array( 0, 0, 16, 6, 16, -6 )
-
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1.1, 0, 0, 0, 2, 0, 0, 0, 1.6, 0, -0.457917, 0 )
-shape = SubResource( 29 )
 
 [node name="Horns" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.0866026, 0.05, 0, -0.05, 0.0866026, -1.23547e-07, 0.501772, -0.498789 )
