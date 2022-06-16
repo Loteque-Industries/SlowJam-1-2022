@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Goat.gd" type="Script" id=1]
 [ext_resource path="res://Mesh/GoatBassLow.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Textures/T_GoatBase_Normal.png" type="Texture" id=3]
+[ext_resource path="res://Textures/T_GoatBase_Roughness.png" type="Texture" id=4]
+[ext_resource path="res://Textures/T_GoatBase_BaseColor.png" type="Texture" id=5]
+[ext_resource path="res://Textures/T_GoatBase_Height.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape" id=29]
 radius = 0.4718
@@ -12,6 +16,16 @@ height = 0.549011
 [sub_resource type="SphereMesh" id=25]
 
 [sub_resource type="SpatialMaterial" id=31]
+albedo_texture = ExtResource( 5 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.88
+normal_texture = ExtResource( 3 )
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource( 6 )
+ao_on_uv2 = false
+ao_texture_channel = 0
 
 [sub_resource type="CylinderMesh" id=27]
 

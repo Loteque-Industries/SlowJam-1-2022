@@ -17,7 +17,7 @@ func _ready() -> void:
 func _on_goat_spawn(goat_name) -> void:
 	var new_goat = factory.generate_goat(0)
 	#var ears = new_goat.get_child(2)
-	var horns = new_goat.generate_goat(3)
+	var horns = new_goat.get_child(3)
 	var body = new_goat.get_child(4)
 	#var tail = new_goat.generate_tail(5)
 	var material = SpatialMaterial.new()
