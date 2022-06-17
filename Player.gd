@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			direction = target.global_transform.origin
 			direction = direction.normalized()
 			velocity.y -= gravity
-			velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
+			velocity = velocity.linear_interpolate(direction * speed * 10, 10 * acceleration * delta)
 			
 	direction = direction.normalized()
 	velocity.y -= gravity

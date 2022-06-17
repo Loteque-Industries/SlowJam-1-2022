@@ -10,4 +10,4 @@ script = ExtResource( 2 )
 [node name="Goat" parent="." instance=ExtResource( 1 )]
 
 [node name="BaseGoatCamera" type="Camera" parent="."]
-transform = Transform( 0.312472, 0.645611, -0.696813, -0.0560123, 0.744789, 0.664945, 0.948274, -0.168747, 0.268888, -2.6339, 3.10388, 1.93595 )
+transform = Transform( 0.312472, 0.645611, -0.696812, -0.0560123, 0.744789, 0.664945, 0.948274, -0.168747, 0.268888, -0.986593, 0.977266, 0.529842 )
