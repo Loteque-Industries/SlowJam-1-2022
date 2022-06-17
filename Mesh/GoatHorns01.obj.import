@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/GoatHorns01.obj-b7047fc9cea189e4bd434c9561ee15bc.mesh"
+
+[deps]
+
+files=[ "res://.import/GoatHorns01.obj-b7047fc9cea189e4bd434c9561ee15bc.mesh" ]
+
+source_file="res://Mesh/GoatHorns01.obj"
+dest_files=[ "res://.import/GoatHorns01.obj-b7047fc9cea189e4bd434c9561ee15bc.mesh", "res://.import/GoatHorns01.obj-b7047fc9cea189e4bd434c9561ee15bc.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://GoatPartStats.gd" type="Script" id=1]
-[ext_resource path="res://Mesh/GoatBassLow.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Mesh/GoatTail04.obj" type="ArrayMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 
 [resource]
 script = ExtResource( 1 )
-part_name = "blue_goat"
-color = Color( 0.313726, 0.678431, 1, 1 )
+part_name = ""
+color = Color( 0.176471, 0.721569, 0.556863, 1 )
 mesh = ExtResource( 2 )
 material = SubResource( 1 )
