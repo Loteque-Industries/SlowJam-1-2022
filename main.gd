@@ -66,6 +66,11 @@ func _on_update_body(part_name):
 	
 func unlock_part_button():
 	if goat_parts["body"] == "red_goat" and goat_parts["horns"] == "blue_horns":
-		yellow_goat_button.show() 
+		if !yellow_goat_button.is_visible():
+			Events.emit_signal("unlock_part", "Yellow Goat")
+			yellow_goat_button.show() 
+		
 	if goat_parts["body"] == "yellow_goat":
-		green_goat_button.show()
+		if !green_goat_button.is_visible():
+			Events.emit_signal("unlock_part", "Green Goat")
+			green_goat_button.show()
