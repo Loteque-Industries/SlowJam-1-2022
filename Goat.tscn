@@ -1,29 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Goat.gd" type="Script" id=1]
-[ext_resource path="res://Mesh/GoatBassLow.obj" type="ArrayMesh" id=2]
-[ext_resource path="res://Textures/T_GoatBase_Normal.png" type="Texture" id=3]
-[ext_resource path="res://Textures/T_GoatBase_Roughness.png" type="Texture" id=4]
-[ext_resource path="res://Textures/T_GoatBase_BaseColor.png" type="Texture" id=5]
-[ext_resource path="res://Textures/T_GoatBase_Height.png" type="Texture" id=6]
+[ext_resource path="res://BaseGoatLow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Mesh/GoatHorns01.obj" type="ArrayMesh" id=7]
 [ext_resource path="res://Mesh/GoatTail01.obj" type="ArrayMesh" id=8]
 
 [sub_resource type="BoxShape" id=32]
 
 [sub_resource type="SphereMesh" id=25]
-
-[sub_resource type="SpatialMaterial" id=31]
-albedo_texture = ExtResource( 5 )
-roughness_texture = ExtResource( 4 )
-normal_enabled = true
-normal_scale = 1.88
-normal_texture = ExtResource( 3 )
-ao_enabled = true
-ao_light_affect = 1.0
-ao_texture = ExtResource( 6 )
-ao_on_uv2 = false
-ao_texture_channel = 0
 
 [node name="Goat" type="KinematicBody" groups=["Goat"]]
 pause_mode = 1
@@ -49,16 +33,14 @@ mesh = ExtResource( 7 )
 skeleton = NodePath("../..")
 material/0 = null
 
+[node name="Body" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -1.2, 0 )
+
 [node name="Ears" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.114147, 0.296344, -0.446914 )
 mesh = SubResource( 25 )
 skeleton = NodePath("../..")
 material/0 = null
-
-[node name="Body" type="MeshInstance" parent="."]
-transform = Transform( 0.0221987, 0, -0.999754, 0, 1, 0, 0.999754, 0, 0.0221987, 0, -1.22141, 0 )
-mesh = ExtResource( 2 )
-material/0 = SubResource( 31 )
 
 [node name="Tail" type="MeshInstance" parent="."]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0.0324471, -0.911748, 0.217207 )
