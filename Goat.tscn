@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Goat.gd" type="Script" id=1]
 [ext_resource path="res://BaseGoatLow.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [sub_resource type="BoxShape" id=32]
 
 [sub_resource type="SphereMesh" id=25]
+
+[sub_resource type="CylinderShape" id=33]
 
 [node name="Goat" type="KinematicBody" groups=["Goat"]]
 pause_mode = 1
@@ -20,10 +22,10 @@ speed = 8
 transform = Transform( 0.2, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, -0.315972, 0 )
 shape = SubResource( 32 )
 
-[node name="Area" type="Area" parent="."]
+[node name="Aggro" type="Area" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.48185e-08, 0.0986578, -2.14711 )
 
-[node name="CollisionPolygon" type="CollisionPolygon" parent="Area"]
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Aggro"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.18261, 0, -1.55081e-07 )
 polygon = PoolVector2Array( 0, 0, 16, 6, 16, -6 )
 
@@ -48,5 +50,13 @@ mesh = ExtResource( 8 )
 skeleton = NodePath("../..")
 material/0 = null
 
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
-[connection signal="body_exited" from="Area" to="." method="_on_Area_body_exited"]
+[node name="Proximity" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Proximity"]
+transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 15, 1.19192e-06, 0.92761, -13.634 )
+shape = SubResource( 33 )
+
+[connection signal="body_entered" from="Aggro" to="." method="_on_Aggro_body_entered"]
+[connection signal="body_exited" from="Aggro" to="." method="_on_Aggro_body_exited"]
+[connection signal="body_entered" from="Proximity" to="." method="_on_Proximity_body_entered"]
+[connection signal="body_exited" from="Proximity" to="." method="_on_Proximity_body_exited"]
