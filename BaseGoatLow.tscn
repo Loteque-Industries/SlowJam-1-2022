@@ -8,3 +8,6 @@
 
 [node name="GoatBase_low_Mesh001" parent="Armature/Skeleton" index="0"]
 material/0 = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="1"]
+blend_times = [ "0TPose", "Alert", 0.2, "0TPose", "Idle", 0.2, "0TPose", "Walk", 0.2, "Alert", "Idle", 0.5, "Alert", "Walk", 0.5, "Idle", "Alert", 0.2, "Idle", "Walk", 0.5, "Walk", "Alert", 0.5, "Walk", "Idle", 0.2 ]
