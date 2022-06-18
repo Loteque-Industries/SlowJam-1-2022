@@ -16,6 +16,7 @@ onready var goatinator = get_tree().get_root().find_node("Goatinator", true, fal
 
 func _ready() -> void:
 	Events.connect("update_horns", self, "_on_update_horns")
+	Events.connect("update_ears", self, "_on_update_ears")
 	Events.connect("update_body", self, "_on_update_body")
 	Events.connect("update_tail", self, "_on_update_tail")
 	Events.connect("spawn_goat", self, "_on_goat_spawn")
@@ -23,9 +24,12 @@ func _ready() -> void:
 	
 func _on_goat_spawn(goat_name) -> void:
 	var new_goat = factory.generate_goat(0)
+	var body_target = new_goat.get_child(4)
+	var armature = body_target.get_child(0)
+	var skeleton = armature.get_child(0)
 	var horns = new_goat.get_child(2)
-	#var ears = new_goat.get_child(3)
-	var body = new_goat.get_child(4)
+	var ears = new_goat.get_child(3)
+	var body = skeleton.get_child(0)
 	var tail = new_goat.get_child(5)
 	var material = SpatialMaterial.new()
 	
@@ -36,6 +40,15 @@ func _on_goat_spawn(goat_name) -> void:
 	material.normal_texture = TexNormal
 	material.roughness_texture = TexRoughness
 	body.set_surface_material(0, material)
+	
+	#apply goat ear material 
+	var new_ears = load("res://Goat_Parts/" + goat_parts["horns"] + ".tres")
+	var ear_mesh = MeshInstance.new()
+	var ear_material = SpatialMaterial.new()
+	ear_material.albedo_color = new_ears.color
+	ears.set_surface_material(0, ear_material)
+	ears.set_mesh(new_ears.mesh)
+	print(goat_parts["ears"])
 	
 	#apply goat horn material 
 	var new_horns = load("res://Goat_Parts/" + goat_parts["horns"] + ".tres")
@@ -69,6 +82,18 @@ func _on_update_horns(part_name):
 	part.set_mesh(mesh)
 	select_material = material
 	goat_parts["horns"] = part_name
+	unlock_part_button()
+
+func _on_update_ears(part_name):
+	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Ears")
+	var material = part_data.material
+	var mesh = part_data.mesh
+	material.albedo_color = part_data.color
+	part.set_surface_material(0, material)
+	part.set_mesh(mesh)
+	select_material = material
+	goat_parts["ears"] = part_name
 	unlock_part_button()
 
 func _on_update_body(part_name):

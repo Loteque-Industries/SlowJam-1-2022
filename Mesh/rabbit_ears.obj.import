@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/rabbit_ears.obj-65313cdc6a8847f8382a6b5bdad01cfe.mesh"
+
+[deps]
+
+files=[ "res://.import/rabbit_ears.obj-65313cdc6a8847f8382a6b5bdad01cfe.mesh" ]
+
+source_file="res://Mesh/rabbit_ears.obj"
+dest_files=[ "res://.import/rabbit_ears.obj-65313cdc6a8847f8382a6b5bdad01cfe.mesh", "res://.import/rabbit_ears.obj-65313cdc6a8847f8382a6b5bdad01cfe.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
