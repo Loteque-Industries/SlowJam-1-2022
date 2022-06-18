@@ -55,8 +55,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jump_power
 	
-	velocity = move_and_slide(velocity, Vector3.UP, true)
-
+	velocity = move_and_slide(velocity, Vector3.UP, true, 4, 1.22173)
+	#Hack to fix a bug with move_and_slide in godot.
+	#discussion/demo: https://www.reddit.com/r/godot/comments/hc4lur/how_to_move_and_stop_correctly_on_slopes_using
+	#see funcion "slope()"
+	var slides = get_slide_count()
+	if(slides):
+		slope(slides)
+	
 func _on_Area_body_entered(body: Node) -> void:
 	if body.is_in_group("Goat"):
 		target = body
@@ -66,3 +72,11 @@ func _on_Area_body_exited(body: Node) -> void:
 	if body.is_in_group("Goat"):
 		target = null
 		print(body.name + " exited")
+
+#Hack to fix a bug with move_and_slide in godot.
+#discussion/demo: https://www.reddit.com/r/godot/comments/hc4lur/how_to_move_and_stop_correctly_on_slopes_using
+func slope(slides : int):
+	for i in slides:
+		var touched = get_slide_collision(i)
+		if is_on_floor() && touched.normal.y < 1.0 && (velocity.x != 0.0 || velocity.z != 0.0):
+			velocity.y = touched.normal.y

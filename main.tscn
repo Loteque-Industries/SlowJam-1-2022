@@ -36,6 +36,7 @@ noise_period = 20.0
 noise_persistance = 0.7
 
 [node name="Goatinator" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.811503, 0, 0.584349, 0, 1, 0, -0.584349, 0, 0.811503, 0, 4.53555, -62.4153 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00813, -1.2265 )

@@ -2,11 +2,12 @@ extends KinematicBody
 
 export var acceleration = 4
 export var speed = 99
-export var gravity = 0.98
+export var gravity = 1.0
 
 var space_state
 var target
 var velocity = Vector3()
+var direction = Vector3()
 
 func _ready() -> void:
 	space_state = get_world().direct_space_state
@@ -18,8 +19,12 @@ func _process(delta: float) -> void:
 			look_at(target.global_transform.origin, Vector3.UP)
 			move_to_target(delta)
 		else:
-			pass
-
+			pass #add other goat behaviors
+			
+func _physics_process(delta: float) -> void:
+	velocity.y -= gravity
+	move_and_slide(velocity, Vector3.UP, true, 4, 1.22173)
+	
 func _on_Area_body_entered(body: Node) -> void:
 	if body.is_in_group("Player"):
 		target = body
@@ -32,6 +37,5 @@ func _on_Area_body_exited(body: Node) -> void:
 
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
-	velocity.y -= gravity
 	velocity = velocity.linear_interpolate(direction * speed, acceleration * delta)
-	velocity = move_and_slide(velocity, Vector3.UP)
+	#velocity = move_and_slide(velocity, Vector3.UP, true, 4, 1.2)
