@@ -234,7 +234,6 @@ align = 1
 valign = 1
 
 [node name="GoatinatorMenu" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -262,7 +261,7 @@ __meta__ = {
 [node name="Viewport" type="Viewport" parent="GoatinatorMenu/ViewportContainer"]
 size = Vector2( 658, 453 )
 handle_input_locally = false
-render_target_update_mode = 0
+render_target_update_mode = 3
 
 [node name="BaseGoat" parent="GoatinatorMenu/ViewportContainer/Viewport" instance=ExtResource( 5 )]
 
@@ -282,7 +281,7 @@ margin_bottom = 439.0
 mouse_filter = 1
 
 [node name="Control" type="Control" parent="GoatinatorMenu/MarginContainer/ScrollContainer"]
-margin_right = 233.0
+margin_right = 221.0
 margin_bottom = 900.0
 rect_min_size = Vector2( 0, 900 )
 mouse_filter = 1
@@ -294,7 +293,17 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="BrownGoatButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+pause_mode = 2
+visible = false
+margin_right = 221.0
+margin_bottom = 20.0
+text = "Brown Goat"
+flat = true
+script = ExtResource( 2 )
+part_name = "brown_goat"
+
+[node name="YellowGoatButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
 visible = false
 margin_right = 221.0
@@ -304,9 +313,8 @@ flat = true
 script = ExtResource( 2 )
 part_name = "yellow_goat"
 
-[node name="Button2" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="GreenGoatButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-visible = false
 margin_right = 221.0
 margin_bottom = 20.0
 text = "Green Goat"
@@ -314,140 +322,155 @@ flat = true
 script = ExtResource( 2 )
 part_name = "green_goat"
 
-[node name="Button3" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="RedGoatButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 20.0
+margin_bottom = 44.0
 text = "Red Goat"
 flat = true
 script = ExtResource( 2 )
 part_name = "red_goat"
 
-[node name="Button4" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="BlueGoatButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
+visible = false
 margin_top = 24.0
 margin_right = 221.0
 margin_bottom = 44.0
-text = "blue_goat"
+text = "Blue Goat"
 flat = true
 script = ExtResource( 2 )
 part_name = "blue_goat"
 
-[node name="Button5" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="SpiralHornsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 48.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 68.0
+margin_bottom = 44.0
 text = "Spiral Horns"
 flat = true
 script = ExtResource( 8 )
 part_name = "spiral_horns"
 
-[node name="Button6" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="LongHornsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 72.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 92.0
+margin_bottom = 44.0
 text = "Long Horns"
 flat = true
 script = ExtResource( 8 )
 part_name = "long_horns"
 
-[node name="Button7" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="SmallHornsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 96.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 116.0
+margin_bottom = 44.0
 text = "Small Horns"
 flat = true
 script = ExtResource( 8 )
 part_name = "small_horns"
 
-[node name="Button8" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="JacobsHornsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 120.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 140.0
+margin_bottom = 44.0
 text = "Jacobs Horns"
 flat = true
 script = ExtResource( 8 )
 part_name = "jacobs_horns"
 
-[node name="Button9" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="FluffyTailButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 144.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 164.0
+margin_bottom = 44.0
 text = "Fluffy Tail"
 flat = true
 script = ExtResource( 6 )
 part_name = "fluffy_tail"
 
-[node name="Button10" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="DevilTailButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 168.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 188.0
+margin_bottom = 44.0
 text = "Devil Tail"
 flat = true
 script = ExtResource( 6 )
 part_name = "devil_tail"
 
-[node name="Button11" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="DoubleTailButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 192.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 212.0
+margin_bottom = 44.0
 text = "Double Tail"
 flat = true
 script = ExtResource( 6 )
 part_name = "double_tail"
 
-[node name="Button12" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="SmallTailButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 216.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 236.0
+margin_bottom = 44.0
 text = "Small Tail"
 flat = true
 script = ExtResource( 6 )
 part_name = "small_tail"
 
-[node name="Button13" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="DagoatEarsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 216.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 236.0
+margin_bottom = 44.0
 text = "Da Goat Ears"
 flat = true
 script = ExtResource( 9 )
 part_name = "dagoat_ears"
 
-[node name="Button14" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="RabbitEarsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 216.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 236.0
+margin_bottom = 44.0
 text = "Rabbit Ears"
 flat = true
 script = ExtResource( 9 )
 part_name = "rabbit_ears"
 
-[node name="Button15" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="DishEarsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 216.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 236.0
+margin_bottom = 44.0
 text = "Dish Ears"
 flat = true
 script = ExtResource( 9 )
 part_name = "dish_ears"
 
-[node name="Button16" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
+[node name="FloppyEarsButton" type="Button" parent="GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer"]
 pause_mode = 2
-margin_top = 216.0
+visible = false
+margin_top = 24.0
 margin_right = 221.0
-margin_bottom = 236.0
+margin_bottom = 44.0
 text = "Floppy Ears"
 flat = true
 script = ExtResource( 9 )
@@ -474,16 +497,15 @@ anchor_left = 0.414
 anchor_top = 0.5
 anchor_right = 0.629
 anchor_bottom = 0.5
-margin_left = -423.936
-margin_top = -254.0
-margin_right = -384.096
-margin_bottom = -217.0
+margin_top = 46.0
+margin_right = 260.0
+margin_bottom = 83.0
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="RewardNotificationPanel"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 913.48
+margin_right = 1794.12
 margin_bottom = 30.0
 rect_pivot_offset = Vector2( 132, 34 )
 size_flags_horizontal = 3
