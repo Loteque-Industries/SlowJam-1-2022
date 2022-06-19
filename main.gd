@@ -2,15 +2,24 @@ extends Spatial
 
 export (SpatialMaterial) var select_material
 
-var goat_parts = {"horns": "", "ears": "red_ears", "body": "", "tail": ""}
+var goat_parts = {"horns": "small_horns", "ears": "dish_ears", "body": "", "tail": "small_tail"}
 
+#load goat body textures
 onready var TexBaseColor = preload("res://Textures/T_GoatBase_BaseColor.png")
 onready var TexNormal = preload("res://Textures/T_GoatBase_Normal.png")
 onready var TexRoughness = preload("res://Textures/T_GoatBase_Roughness.png")
 onready var TexHeight = preload("res://Textures/T_GoatBase_Height.png")
 
+#load goat parts textures
+onready var TexPartsBaseColor = preload("res://Textures/T_GoatParts_BaseColor.png")
+onready var TexPartsNormal = preload("res://Textures/T_GoatParts_Normal.png")
+onready var TexPartsRoughness = preload("res://Textures/T_GoatParts_Roughness.png")
+
+#load goat parts buttons data
 onready var yellow_goat_button = get_node("UserInterface/GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer/Button")
 onready var green_goat_button = get_node("UserInterface/GoatinatorMenu/MarginContainer/ScrollContainer/Control/VBoxContainer/Button2")
+
+#load goat factory data
 onready var factory = preload("res://BaseGoat.tscn").instance()
 onready var goatinator = get_tree().get_root().find_node("Goatinator", true, false)
 
@@ -32,8 +41,16 @@ func _on_goat_spawn(goat_name) -> void:
 	var body = skeleton.get_child(0)
 	var tail = new_goat.get_child(5)
 	var material = SpatialMaterial.new()
+	var parts_material = SpatialMaterial.new()
 	
-	#apply goat body material
+	#apply default parts material
+	parts_material.albedo_color = select_material.albedo_color
+	parts_material.albedo_texture = TexBaseColor
+	parts_material.normal_enabled = true
+	parts_material.normal_texture = TexPartsNormal
+	parts_material.roughness_texture = TexPartsRoughness
+	
+	#apply default goat body material
 	material.albedo_color = select_material.albedo_color
 	material.albedo_texture = TexBaseColor
 	material.normal_enabled = true
