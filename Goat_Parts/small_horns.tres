@@ -1,9 +1,18 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=7 format=2]
 
 [ext_resource path="res://GoatPartStats.gd" type="Script" id=1]
 [ext_resource path="res://Mesh/GoatHorns01.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Textures/T_GoatParts_BaseColor.png" type="Texture" id=3]
+[ext_resource path="res://Textures/T_GoatParts_Normal.png" type="Texture" id=4]
+[ext_resource path="res://Textures/T_GoatParts_Roughness.png" type="Texture" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.352941, 0.584314, 0.403922, 1 )
+albedo_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 5 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 4 )
 
 [resource]
 script = ExtResource( 1 )

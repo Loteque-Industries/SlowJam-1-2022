@@ -2,7 +2,9 @@ extends Spatial
 
 export (SpatialMaterial) var select_material
 
+#dictionaries to toggle goat parts
 var goat_parts = {"horns": "small_horns", "ears": "dish_ears", "body": "", "tail": "small_tail"}
+var curr_goat_parts = {"horns": "small_horns", "ears": "dish_ears", "body": "", "tail": "small_tail"}
 
 #load goat body textures
 onready var TexBaseColor = preload("res://Textures/T_GoatBase_BaseColor.png")
@@ -39,6 +41,7 @@ onready var factory = preload("res://BaseGoat.tscn").instance()
 onready var goatinator = get_tree().get_root().find_node("Goatinator", true, false)
 
 func _ready() -> void:
+	#setup event bus connections
 	Events.connect("update_horns", self, "_on_update_horns")
 	Events.connect("update_ears", self, "_on_update_ears")
 	Events.connect("update_body", self, "_on_update_body")
@@ -48,106 +51,171 @@ func _ready() -> void:
 	
 func _on_goat_spawn(goat_name) -> void:
 	var new_goat = factory.generate_goat(0)
-	var body_target = new_goat.get_child(4)
+	var body_target = new_goat.get_child(3)
 	var armature = body_target.get_child(0)
 	var skeleton = armature.get_child(0)
-	var horns = new_goat.get_child(2)
-	var ears = new_goat.get_child(3)
+	var head_bone = skeleton.get_child(1)
+	var tail_bone = skeleton.get_child(2)
+	
+	# load all the available parts meshes
+	
+	#ear meshes
+	var dagoat_ears = head_bone.get_child(0)
+	var dish_ears = head_bone.get_child(1)
+	var floppy_ears = head_bone.get_child(2)
+	var rabbit_ears = head_bone.get_child(3)
+	
+	#horn meshes
+	var small_horns = head_bone.get_child(4)
+	var spiral_horns = head_bone.get_child(5)
+	var long_horns = head_bone.get_child(6)
+	var jacobs_horns = head_bone.get_child(7)
+	
+	#body meshes
 	var body = skeleton.get_child(0)
-	var tail = new_goat.get_child(5)
+	
+	#tail meshes
+	var small_tail = tail_bone.get_child(0)
+	var fluffy_tail = tail_bone.get_child(1)
+	var devil_tail = tail_bone.get_child(2)
+	var double_tail = tail_bone.get_child(3)
+	
+	#apply goat body material
+	var new_body = load("res://Goat_Parts/" + goat_parts["body"] + ".tres")
+	var new_body_material = new_body.material
 	var material = SpatialMaterial.new()
-	var parts_material = SpatialMaterial.new()
-	
-	#apply default parts material
-	parts_material.albedo_color = select_material.albedo_color
-	parts_material.albedo_texture = TexBaseColor
-	parts_material.normal_enabled = true
-	parts_material.normal_texture = TexPartsNormal
-	parts_material.roughness_texture = TexPartsRoughness
-	
-	#apply default goat body material
-	material.albedo_color = select_material.albedo_color
-	material.albedo_texture = TexBaseColor
+	material.albedo_color = new_body_material.albedo_color
+	material.albedo_texture = new_body_material.albedo_texture
 	material.normal_enabled = true
-	material.normal_texture = TexNormal
-	material.roughness_texture = TexRoughness
+	material.normal_texture = new_body_material.normal_texture
+	material.roughness_texture = new_body_material.roughness_texture
 	body.set_surface_material(0, material)
 	
-	#apply goat ear material 
-	var new_ears = load("res://Goat_Parts/" + goat_parts["horns"] + ".tres")
-	var ear_mesh = MeshInstance.new()
-	var ear_material = SpatialMaterial.new()
-	ear_material.albedo_color = new_ears.color
-	ears.set_surface_material(0, ear_material)
-	ears.set_mesh(new_ears.mesh)
-	print(goat_parts["ears"])
+	#hide ears
+	if curr_goat_parts["ears"] == "dagoat_ears":
+		dagoat_ears.hide()
+	elif curr_goat_parts["ears"] == "dish_ears":
+		dish_ears.hide()
+	elif curr_goat_parts["ears"] == "floppy_ears":
+		floppy_ears.hide()
+	elif curr_goat_parts["ears"] == "rabbit_ears":
+		rabbit_ears.hide()
+	else:
+		pass
+		
+	#show ears
+	if goat_parts["ears"] == "dagoat_ears":
+		dagoat_ears.show()
+		curr_goat_parts["ears"] = "dagoat_ears"
+	elif goat_parts["ears"] == "dish_ears":
+		dish_ears.show()
+		curr_goat_parts["ears"] = "dish_ears"
+	elif goat_parts["ears"] == "floppy_ears":
+		floppy_ears.show()
+		curr_goat_parts["ears"] = floppy_ears
+	elif goat_parts["ears"] == "rabbit_ears":
+		rabbit_ears.show()
+		curr_goat_parts["ears"] = "rabbit_ears"
+	else:
+		pass
 	
-	#apply goat horn material 
-	var new_horns = load("res://Goat_Parts/" + goat_parts["horns"] + ".tres")
-	var horn_mesh = MeshInstance.new()
-	var horn_material = SpatialMaterial.new()
-	horn_material.albedo_color = new_horns.color
-	horns.set_surface_material(0, horn_material)
-	horns.set_mesh(new_horns.mesh)
-	print(goat_parts["horns"])
+	#hide horns
+	if curr_goat_parts["horns"] == "small_horns":
+		small_horns.hide()
+	elif curr_goat_parts["horns"] == "spiral_horns":
+		spiral_horns.hide()
+	elif curr_goat_parts["horns"] == "long_horns":
+		long_horns.hide()
+	elif curr_goat_parts["horns"] == "jacobs_horns":
+		jacobs_horns.hide()
+	else:
+		pass
 	
-	#apply goat tail material
-	var new_tail = load("res://Goat_Parts/" + goat_parts["tail"] + ".tres")
-	var tail_mesh = MeshInstance.new()
-	var tail_material = SpatialMaterial.new()
-	tail_material.albedo_color = new_tail.color
-	tail.set_surface_material(0, tail_material)
-	tail.set_mesh(new_tail.mesh)
-	print(goat_parts["tail"])
+	#show horns
+	if goat_parts["horns"] == "small_horns":
+		small_horns.show()
+		curr_goat_parts["horns"] = "small_horns"
+	elif goat_parts["horns"] == "spiral_horns":
+		spiral_horns.show()
+		curr_goat_parts["horns"] = "spiral_horns"
+	elif goat_parts["horns"] == "long_horns":
+		long_horns.show()
+		curr_goat_parts["horns"] = "long_horns"
+	elif goat_parts["horns"] == "jacobs_horns":
+		jacobs_horns.show()
+		curr_goat_parts["horns"] = "jacobs_horns"
+	else:
+		pass
+	
+	#show tails
+	if curr_goat_parts["tail"] == "small_tail":
+		small_tail.hide()
+	elif curr_goat_parts["tail"] == "fluffy_tail":
+		fluffy_tail.hide()
+	elif curr_goat_parts["tail"] == "devil_tail":
+		devil_tail.hide()
+	elif curr_goat_parts["tail"] == "double_tail":
+		double_tail.hide()
+	else:
+		pass
+			
+	#hide tails
+	if goat_parts["tail"] == "small_tail":
+		small_tail.show()
+		curr_goat_parts["tail"] = "small_tail"
+	elif goat_parts["tail"] == "fluffy_tail":
+		fluffy_tail.show()
+		curr_goat_parts["tail"] = "fluffy_tail"
+	elif goat_parts["tail"] == "devil_tail":
+		devil_tail.show()
+		curr_goat_parts["tail"] = "devil_tail"
+	elif goat_parts["tail"] == "double_tail":
+		double_tail.show()
+		curr_goat_parts["tail"] = "double_tail"
+	else:
+		pass
 	
 	#spawn goat at the goatinator
 	new_goat.transform.origin = goatinator.transform.origin
 	add_child(new_goat)
 
 func _on_update_horns(part_name):
-	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Horns")
-	var material = part_data.material
-	var mesh = part_data.mesh
-	material.albedo_color = part_data.color
-	part.set_surface_material(0, material)
-	part.set_mesh(mesh)
-	select_material = material
+	get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["horns"]).hide()
 	goat_parts["horns"] = part_name
+	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["horns"])
+	var material = part_data.material
+	part.set_surface_material(0, material)
+	part.show()
 	unlock_part_button()
 
 func _on_update_ears(part_name):
-	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Ears")
-	var material = part_data.material
-	var mesh = part_data.mesh
-	material.albedo_color = part_data.color
-	part.set_surface_material(0, material)
-	part.set_mesh(mesh)
-	select_material = material
+	get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["ears"]).hide()
 	goat_parts["ears"] = part_name
+	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["ears"])
+	var material = part_data.material
+	part.set_surface_material(0, material)
+	part.show()
 	unlock_part_button()
 
 func _on_update_body(part_name):
 	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Body/Armature/Skeleton/GoatBase_low_Mesh001")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/GoatBase_low_Mesh001")
 	var material = part_data.material
 	material.albedo_color = part_data.color
 	part.set_surface_material(0, material)
-	select_material = material
 	goat_parts["body"] = part_name
 	unlock_part_button()
 	
 func _on_update_tail(part_name):
-	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Tail")
-	var material = part_data.material
-	var mesh = part_data.mesh
-	material.albedo_color = part_data.color
-	part.set_surface_material(0, material)
-	part.set_mesh(mesh)
-	select_material = material
+	get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/TailBone/" + goat_parts["tail"]).hide()
 	goat_parts["tail"] = part_name
+	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/TailBone/" + goat_parts["tail"])
+	var material = part_data.material
+	part.set_surface_material(0, material)
+	part.show()
 	unlock_part_button()
 	
 func unlock_part_button():

@@ -14,24 +14,23 @@ var direction = Vector3()
 func _ready() -> void:
 	space_state = get_world().direct_space_state
 	
-	
 func _process(delta: float) -> void:
 	if target:
 		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
 		if result.collider.is_in_group("Player"):
 			look_at(target.global_transform.origin, Vector3.UP)
 			move_to_target(delta)
-			get_node("Body/AnimationPlayer").play("Walk")
+			get_node("AnimatedGoat/AnimationPlayer").play("Run")
 		
 	elif proximity_target:
 		var proximity = space_state.intersect_ray(global_transform.origin, proximity_target.global_transform.origin)
 		if proximity.collider.is_in_group("Player"):
 			look_at(proximity_target.global_transform.origin, Vector3.UP)
-			get_node("Body/AnimationPlayer").play("Alert")
+			get_node("AnimatedGoat/AnimationPlayer").play("Alert")
 	
 	else:
 		if is_on_floor():
-			get_node("Body/AnimationPlayer").play("Idle")
+			get_node("AnimatedGoat/AnimationPlayer").play("Idle")
 
 
 func move_to_target(delta):
