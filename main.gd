@@ -39,22 +39,27 @@ onready var factory = preload("res://BaseGoat.tscn").instance()
 onready var goatinator = get_tree().get_root().find_node("Goatinator", true, false)
 
 func _ready() -> void:
+	#setup event bus connections
 	Events.connect("update_horns", self, "_on_update_horns")
 	Events.connect("update_ears", self, "_on_update_ears")
 	Events.connect("update_body", self, "_on_update_body")
 	Events.connect("update_tail", self, "_on_update_tail")
 	Events.connect("spawn_goat", self, "_on_goat_spawn")
 	
+	#setup goat parts
+	
 	
 func _on_goat_spawn(goat_name) -> void:
 	var new_goat = factory.generate_goat(0)
-	var body_target = new_goat.get_child(4)
+	var body_target = new_goat.get_child(3)
 	var armature = body_target.get_child(0)
 	var skeleton = armature.get_child(0)
-	var horns = new_goat.get_child(2)
-	var ears = new_goat.get_child(3)
+	var head_bone = skeleton.get_child(1)
+	var horns = head_bone.get_child(0)
+	var ears = head_bone.get_child(1)
 	var body = skeleton.get_child(0)
-	var tail = new_goat.get_child(5)
+	var tail_bone = skeleton.get_child(2)
+	var tail = tail_bone.get_child(0)
 	var material = SpatialMaterial.new()
 	var parts_material = SpatialMaterial.new()
 	
@@ -74,12 +79,13 @@ func _on_goat_spawn(goat_name) -> void:
 	body.set_surface_material(0, material)
 	
 	#apply goat ear material 
-	var new_ears = load("res://Goat_Parts/" + goat_parts["horns"] + ".tres")
+	var new_ears = load("res://Goat_Parts/" + goat_parts["ears"] + ".tres")
 	var ear_mesh = MeshInstance.new()
 	var ear_material = SpatialMaterial.new()
 	ear_material.albedo_color = new_ears.color
 	ears.set_surface_material(0, ear_material)
 	ears.set_mesh(new_ears.mesh)
+	ears.rotate_y(1.5708)
 	print(goat_parts["ears"])
 	
 	#apply goat horn material 
@@ -89,6 +95,7 @@ func _on_goat_spawn(goat_name) -> void:
 	horn_material.albedo_color = new_horns.color
 	horns.set_surface_material(0, horn_material)
 	horns.set_mesh(new_horns.mesh)
+	horns.rotate_y(1.5708)
 	print(goat_parts["horns"])
 	
 	#apply goat tail material
@@ -98,6 +105,7 @@ func _on_goat_spawn(goat_name) -> void:
 	tail_material.albedo_color = new_tail.color
 	tail.set_surface_material(0, tail_material)
 	tail.set_mesh(new_tail.mesh)
+	tail.rotate_y(1.5708)
 	print(goat_parts["tail"])
 	
 	#spawn goat at the goatinator
@@ -106,31 +114,33 @@ func _on_goat_spawn(goat_name) -> void:
 
 func _on_update_horns(part_name):
 	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Horns")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/Horns")
 	var material = part_data.material
 	var mesh = part_data.mesh
 	material.albedo_color = part_data.color
 	part.set_surface_material(0, material)
 	part.set_mesh(mesh)
+	part.rotate_y(1.5708)
 	select_material = material
 	goat_parts["horns"] = part_name
 	unlock_part_button()
 
 func _on_update_ears(part_name):
 	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Ears")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/Ears")
 	var material = part_data.material
 	var mesh = part_data.mesh
 	material.albedo_color = part_data.color
 	part.set_surface_material(0, material)
 	part.set_mesh(mesh)
+	part.rotate_y(1.5708)
 	select_material = material
 	goat_parts["ears"] = part_name
 	unlock_part_button()
 
 func _on_update_body(part_name):
 	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Body/Armature/Skeleton/GoatBase_low_Mesh001")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/GoatBase_low_Mesh001")
 	var material = part_data.material
 	material.albedo_color = part_data.color
 	part.set_surface_material(0, material)
@@ -140,12 +150,13 @@ func _on_update_body(part_name):
 	
 func _on_update_tail(part_name):
 	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
-	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/Tail")
+	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/TailBone/Tail")
 	var material = part_data.material
 	var mesh = part_data.mesh
 	material.albedo_color = part_data.color
 	part.set_surface_material(0, material)
 	part.set_mesh(mesh)
+	part.rotate_y(1.5708)
 	select_material = material
 	goat_parts["tail"] = part_name
 	unlock_part_button()
