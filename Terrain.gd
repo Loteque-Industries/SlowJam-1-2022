@@ -11,7 +11,7 @@ export var noise_octaves: int
 export var noise_period: float
 export var noise_persistance: float
 
-
+onready var terrain_material = preload("terrain_material.tres")
 onready var player = Globals.player
 var player_chunk_grid_position : Vector2
 
