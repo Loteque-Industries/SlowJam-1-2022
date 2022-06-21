@@ -87,7 +87,7 @@ panorama = ExtResource( 9 )
 background_mode = 2
 background_sky = SubResource( 20 )
 ambient_light_color = Color( 0.501961, 0.501961, 0.501961, 1 )
-ambient_light_energy = 0.08
+ambient_light_energy = 0.8
 ambient_light_sky_contribution = 0.7
 fog_enabled = true
 fog_color = Color( 0.592157, 0.603922, 0.611765, 1 )
@@ -97,7 +97,7 @@ fog_depth_end = 151.2
 fog_height_enabled = true
 fog_height_max = -85.6
 tonemap_mode = 2
-tonemap_white = 5.79
+tonemap_white = 16.0
 
 [node name="main" type="Spatial"]
 script = ExtResource( 4 )
