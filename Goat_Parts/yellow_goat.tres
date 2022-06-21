@@ -16,6 +16,6 @@ normal_texture = ExtResource( 4 )
 [resource]
 script = ExtResource( 1 )
 part_name = "yellow_goat"
-color = Color( 0.254902, 1, 0.301961, 1 )
+color = Color( 0.98, 1, 0.8, 1 )
 mesh = ExtResource( 2 )
 material = SubResource( 1 )

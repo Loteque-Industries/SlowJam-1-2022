@@ -182,20 +182,20 @@ func _on_goat_spawn(goat_name) -> void:
 func _on_update_horns(part_name):
 	get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["horns"]).hide()
 	goat_parts["horns"] = part_name
-	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
+	#var part_data = load("res://Goat_Parts/" + part_name + ".tres")
 	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["horns"])
-	var material = part_data.material
-	part.set_surface_material(0, material)
+	#var material = part_data.material
+	#part.set_surface_material(0, material)
 	part.show()
 	unlock_part_button()
 
 func _on_update_ears(part_name):
 	get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["ears"]).hide()
 	goat_parts["ears"] = part_name
-	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
+	#var part_data = load("res://Goat_Parts/" + part_name + ".tres")
 	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/HeadBone/" + goat_parts["ears"])
-	var material = part_data.material
-	part.set_surface_material(0, material)
+	#var material = part_data.material
+	#part.set_surface_material(0, material)
 	part.show()
 	unlock_part_button()
 
@@ -211,10 +211,10 @@ func _on_update_body(part_name):
 func _on_update_tail(part_name):
 	get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/TailBone/" + goat_parts["tail"]).hide()
 	goat_parts["tail"] = part_name
-	var part_data = load("res://Goat_Parts/" + part_name + ".tres")
+	#var part_data = load("res://Goat_Parts/" + part_name + ".tres")
 	var part = get_node("UserInterface/GoatinatorMenu/ViewportContainer/Viewport/BaseGoat/Goat/AnimatedGoat/Armature/Skeleton/TailBone/" + goat_parts["tail"])
-	var material = part_data.material
-	part.set_surface_material(0, material)
+	#var material = part_data.material
+	#part.set_surface_material(0, material)
 	part.show()
 	unlock_part_button()
 	

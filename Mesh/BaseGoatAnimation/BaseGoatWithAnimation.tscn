@@ -125,17 +125,17 @@ normal_scale = 1.0
 normal_texture = ExtResource( 18 )
 
 [sub_resource type="SpatialMaterial" id=10]
-albedo_color = Color( 0.266667, 0.188235, 0.105882, 1 )
 albedo_texture = ExtResource( 1 )
 roughness_texture = ExtResource( 4 )
+roughness_texture_channel = 4
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 2 )
 
 [sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 0.596078, 0.27451, 0.27451, 1 )
 albedo_texture = ExtResource( 1 )
-roughness_texture = ExtResource( 4 )
+roughness_texture = ExtResource( 19 )
+roughness_texture_channel = 4
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 2 )
@@ -969,7 +969,7 @@ bones/15/name = "Head"
 bones/15/parent = 14
 bones/15/rest = Transform( 0.517157, -0.855785, -0.0134205, 0.855281, 0.516135, 0.0458147, -0.0322807, -0.0351717, 0.99886, -9.3764e-08, 0.632731, 1.07121e-08 )
 bones/15/enabled = true
-bones/15/bound_children = [  ]
+bones/15/bound_children = [ NodePath("HeadBone") ]
 bones/16/name = "Shoulder.R"
 bones/16/parent = 11
 bones/16/rest = Transform( 0.472497, -0.808252, -0.351391, 0.0945228, -0.349932, 0.931994, -0.876249, -0.473579, -0.0889436, 0.395987, 1.80913, -0.257017 )
@@ -1027,7 +1027,7 @@ skin = SubResource( 5 )
 material/0 = SubResource( 12 )
 
 [node name="HeadBone" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.0319225, -0.0302156, 0.999034, 0.998012, 0.0533839, 0.0335051, -0.0543438, 0.998115, 0.0284512, -0.00166321, 5.11852, 1.8139 )
+transform = Transform( 0.119029, -0.178846, 0.976651, 0.0204344, -0.982994, -0.182498, 0.992679, 0.0416817, -0.11335, -0.0294997, 1.44261, 2.7911 )
 bone_name = "Head"
 
 [node name="dagoat_ears" type="MeshInstance" parent="Armature/Skeleton/HeadBone"]
