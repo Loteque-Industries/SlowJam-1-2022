@@ -54,7 +54,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jump_power
-	
+		get_node("JumpAudio").play()
+		
 	velocity = move_and_slide(velocity, Vector3.UP, true, 4, 1.22173)
 	#Hack to fix a bug with move_and_slide in godot.
 	#discussion/demo: https://www.reddit.com/r/godot/comments/hc4lur/how_to_move_and_stop_correctly_on_slopes_using
@@ -66,8 +67,9 @@ func _physics_process(delta: float) -> void:
 func _on_Area_body_entered(body: Node) -> void:
 	if body.is_in_group("Goat"):
 		target = body
+		get_node("OnHitAudio").play()
 		print(body.name + " entered")
-
+	
 func _on_Area_body_exited(body: Node) -> void:
 	if body.is_in_group("Goat"):
 		target = null

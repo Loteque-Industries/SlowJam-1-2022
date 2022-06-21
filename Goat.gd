@@ -21,13 +21,14 @@ func _process(delta: float) -> void:
 			look_at(target.global_transform.origin, Vector3.UP)
 			move_to_target(delta)
 			get_node("AnimatedGoat/AnimationPlayer").play("Run")
-		
+			get_node("GoatAttack").play()
+			
 	elif proximity_target:
 		var proximity = space_state.intersect_ray(global_transform.origin, proximity_target.global_transform.origin)
 		if proximity.collider.is_in_group("Player"):
 			look_at(proximity_target.global_transform.origin, Vector3.UP)
 			get_node("AnimatedGoat/AnimationPlayer").play("Alert")
-	
+			get_node("GoatAlert").play()
 	else:
 		if is_on_floor():
 			get_node("AnimatedGoat/AnimationPlayer").play("Idle")

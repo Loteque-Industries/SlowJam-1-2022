@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/400785__bonnyorbit__swiss-hills-with-animals-with-bells.wav-1868b466ac6baba47994c6b7c31821f4.sample"
+
+[deps]
+
+source_file="res://sound/400785__bonnyorbit__swiss-hills-with-animals-with-bells.wav"
+dest_files=[ "res://.import/400785__bonnyorbit__swiss-hills-with-animals-with-bells.wav-1868b466ac6baba47994c6b7c31821f4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

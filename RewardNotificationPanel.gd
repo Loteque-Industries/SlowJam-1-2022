@@ -6,7 +6,7 @@ func _ready() -> void:
 	hide()
 
 func _on_unlock_part(part_name) -> void:
-	print(part_name)
+	get_node("RewardPing").play()
 	show()
 	get_child(0).set_text("You Unlocked " + part_name + "!")
 	get_child(1).queue("popup_shake")

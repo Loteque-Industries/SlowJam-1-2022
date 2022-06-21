@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/161194__shadeslayer99__funny-goat-sound.wav-2424682f39eeac203ed0d8b6a838bcb0.sample"
+
+[deps]
+
+source_file="res://sound/161194__shadeslayer99__funny-goat-sound.wav"
+dest_files=[ "res://.import/161194__shadeslayer99__funny-goat-sound.wav-2424682f39eeac203ed0d8b6a838bcb0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
