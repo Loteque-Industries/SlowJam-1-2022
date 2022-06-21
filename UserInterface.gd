@@ -36,6 +36,7 @@ func _on_ShutdownGoatinatorButton_pressed() -> void:
 		get_tree().set_deferred("paused", false)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	get_node("AudioStreamPlayer").play()
 	#signal to spawn the goat on exit
 	Events.emit_signal("spawn_goat", "goat" + str(i))
 	i = i + 1

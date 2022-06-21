@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/581240__kinoton__single-goat-bleating-2x.wav-62fe29f7e75866588d5982ed6ba2ed42.sample"
+
+[deps]
+
+source_file="res://sound/581240__kinoton__single-goat-bleating-2x.wav"
+dest_files=[ "res://.import/581240__kinoton__single-goat-bleating-2x.wav-62fe29f7e75866588d5982ed6ba2ed42.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

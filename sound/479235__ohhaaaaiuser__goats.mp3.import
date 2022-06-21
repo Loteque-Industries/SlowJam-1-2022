@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/479235__ohhaaaaiuser__goats.mp3-b4136c303c86f712aeb2967e7614860b.mp3str"
+
+[deps]
+
+source_file="res://sound/479235__ohhaaaaiuser__goats.mp3"
+dest_files=[ "res://.import/479235__ohhaaaaiuser__goats.mp3-b4136c303c86f712aeb2967e7614860b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
