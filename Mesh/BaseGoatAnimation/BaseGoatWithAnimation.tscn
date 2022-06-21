@@ -125,21 +125,19 @@ normal_scale = 1.0
 normal_texture = ExtResource( 18 )
 
 [sub_resource type="SpatialMaterial" id=10]
-albedo_color = Color( 0.0823529, 0, 0.0705882, 1 )
 albedo_texture = ExtResource( 1 )
 roughness = 0.67
 roughness_texture = ExtResource( 4 )
-roughness_texture_channel = 3
+roughness_texture_channel = 4
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 2 )
 
 [sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 0.0745098, 0, 0.0941176, 1 )
 albedo_texture = ExtResource( 1 )
 roughness = 0.54
-roughness_texture = ExtResource( 4 )
-roughness_texture_channel = 3
+roughness_texture = ExtResource( 19 )
+roughness_texture_channel = 4
 emission_enabled = true
 emission = Color( 0.196078, 0.196078, 0.196078, 1 )
 emission_energy = 1.0
