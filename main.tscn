@@ -87,10 +87,15 @@ panorama = ExtResource( 9 )
 background_mode = 2
 background_sky = SubResource( 20 )
 ambient_light_color = Color( 0.501961, 0.501961, 0.501961, 1 )
-ambient_light_energy = 3.0
-ambient_light_sky_contribution = 0.43
+ambient_light_energy = 0.08
+ambient_light_sky_contribution = 0.7
 fog_enabled = true
 fog_color = Color( 0.592157, 0.603922, 0.611765, 1 )
+fog_sun_color = Color( 1, 1, 1, 1 )
+fog_depth_begin = 37.1
+fog_depth_end = 151.2
+fog_height_enabled = true
+fog_height_max = -85.6
 tonemap_mode = 2
 tonemap_white = 5.79
 
@@ -131,10 +136,11 @@ environment = SubResource( 21 )
 
 [node name="Sun" type="DirectionalLight" parent="WorldEnvironment"]
 transform = Transform( 0.819152, 0.196175, -0.538986, 0, 0.939693, 0.34202, 0.573577, -0.280167, 0.769751, 0, 9.41471, -62.4727 )
-light_energy = 3.217
+light_energy = 4.158
 shadow_enabled = true
 shadow_color = Color( 0.105882, 0, 0.113725, 1 )
-directional_shadow_mode = 1
+directional_shadow_depth_range = 1
+directional_shadow_max_distance = 400.0
 
 [node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )

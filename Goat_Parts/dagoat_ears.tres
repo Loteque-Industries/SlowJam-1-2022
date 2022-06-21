@@ -17,6 +17,6 @@ normal_texture = ExtResource( 4 )
 [resource]
 script = ExtResource( 1 )
 part_name = "dagoat_ears"
-color = Color( 0.396078, 0.360784, 0.360784, 1 )
+color = Color( 0.15, 0.15, 0.15, 1 )
 mesh = ExtResource( 2 )
 material = SubResource( 1 )
