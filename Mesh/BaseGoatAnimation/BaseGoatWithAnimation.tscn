@@ -969,7 +969,7 @@ bones/15/name = "Head"
 bones/15/parent = 14
 bones/15/rest = Transform( 0.517157, -0.855785, -0.0134205, 0.855281, 0.516135, 0.0458147, -0.0322807, -0.0351717, 0.99886, -9.3764e-08, 0.632731, 1.07121e-08 )
 bones/15/enabled = true
-bones/15/bound_children = [ NodePath("HeadBone") ]
+bones/15/bound_children = [  ]
 bones/16/name = "Shoulder.R"
 bones/16/parent = 11
 bones/16/rest = Transform( 0.472497, -0.808252, -0.351391, 0.0945228, -0.349932, 0.931994, -0.876249, -0.473579, -0.0889436, 0.395987, 1.80913, -0.257017 )
@@ -1027,7 +1027,7 @@ skin = SubResource( 5 )
 material/0 = SubResource( 12 )
 
 [node name="HeadBone" type="BoneAttachment" parent="Armature/Skeleton"]
-transform = Transform( -0.00533711, -0.0159005, 0.999859, 0.999983, -0.00222334, 0.00530238, 0.00214042, 0.999871, 0.0159123, -0.00150414, 5.17049, 1.8414 )
+transform = Transform( -0.0319225, -0.0302156, 0.999034, 0.998012, 0.0533839, 0.0335051, -0.0543438, 0.998115, 0.0284512, -0.00166321, 5.11852, 1.8139 )
 bone_name = "Head"
 
 [node name="dagoat_ears" type="MeshInstance" parent="Armature/Skeleton/HeadBone"]
@@ -1113,3 +1113,4 @@ anims/0TPose = SubResource( 6 )
 anims/Alert = SubResource( 7 )
 anims/Idle = SubResource( 8 )
 anims/Run = SubResource( 9 )
+blend_times = [ "0TPose", "Alert", 0.5, "0TPose", "Idle", 0.5, "0TPose", "Run", 0.5, "Alert", "0TPose", 0.3, "Alert", "Alert", 0.3, "Alert", "Idle", 0.4, "Alert", "Run", 0.2, "Idle", "Alert", 0.3, "Idle", "Idle", 0.3, "Idle", "Run", 0.5, "Run", "Alert", 0.2, "Run", "Idle", 0.2 ]

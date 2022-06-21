@@ -3,8 +3,8 @@ extends Spatial
 export (SpatialMaterial) var select_material
 
 #dictionaries to toggle goat parts
-var goat_parts = {"horns": "small_horns", "ears": "dish_ears", "body": "", "tail": "small_tail"}
-var curr_goat_parts = {"horns": "small_horns", "ears": "dish_ears", "body": "", "tail": "small_tail"}
+var goat_parts = {"horns": "small_horns", "ears": "dish_ears", "body": "brown_goat", "tail": "small_tail"}
+var curr_goat_parts = {"horns": "small_horns", "ears": "dish_ears", "body": "brown_goat", "tail": "small_tail"}
 
 #load goat body textures
 onready var TexBaseColor = preload("res://Textures/T_GoatBase_BaseColor.png")

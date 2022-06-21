@@ -29,7 +29,7 @@ polygon = PoolVector2Array( 0, 0, 16, 6, 16, -6 )
 [node name="Proximity" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Proximity"]
-transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 15, 1.19192e-06, 0.92761, -13.634 )
+transform = Transform( 10, 0, 0, 0, 5, 0, 0, 0, 15, 0, -2, -13.634 )
 shape = SubResource( 33 )
 
 [node name="AnimatedGoat" parent="." instance=ExtResource( 4 )]
