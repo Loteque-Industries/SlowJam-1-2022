@@ -76,7 +76,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=17]
 shader = SubResource( 19 )
-shader_param/uv_scale = 2.0
+shader_param/uv_scale = 3.0
 shader_param/albedo = ExtResource( 1 )
 shader_param/normalmap = ExtResource( 8 )
 
@@ -86,8 +86,13 @@ panorama = ExtResource( 9 )
 [sub_resource type="Environment" id=21]
 background_mode = 2
 background_sky = SubResource( 20 )
+ambient_light_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+ambient_light_energy = 3.0
+ambient_light_sky_contribution = 0.43
 fog_enabled = true
 fog_color = Color( 0.592157, 0.603922, 0.611765, 1 )
+tonemap_mode = 2
+tonemap_white = 5.79
 
 [node name="main" type="Spatial"]
 script = ExtResource( 4 )
@@ -98,10 +103,6 @@ select_material = SubResource( 18 )
 [node name="UserInterface" parent="." instance=ExtResource( 6 )]
 pause_mode = 1
 mouse_filter = 2
-
-[node name="Sun" type="DirectionalLight" parent="."]
-transform = Transform( 0.768598, 0.4165, -0.485577, -0.11477, 0.83649, 0.535829, 0.629353, -0.356107, 0.690726, 0, 11.9716, -60.3739 )
-shadow_enabled = true
 
 [node name="Terrain" type="Spatial" parent="."]
 pause_mode = 2
@@ -127,6 +128,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00813, -1.2265 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 21 )
+
+[node name="Sun" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 0.819152, 0.196175, -0.538986, 0, 0.939693, 0.34202, 0.573577, -0.280167, 0.769751, 0, 9.41471, -62.4727 )
+light_energy = 3.217
+shadow_enabled = true
+shadow_color = Color( 0.105882, 0, 0.113725, 1 )
+directional_shadow_mode = 1
 
 [node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
