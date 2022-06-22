@@ -29,7 +29,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.1826
 polygon = PoolVector2Array( 0, 0, 10, 6, 10, -6 )
 
 [node name="Proximity" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.1248, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.29559, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Proximity"]
 transform = Transform( 20, 0, 0, 0, 5, 0, 0, 0, 20, -7.122e-07, -2.40625, -5.48738 )
