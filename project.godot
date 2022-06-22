@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Chunk.gd"
 }, {
+"base": "MeshInstance",
+"class": "CloudDome",
+"language": "GDScript",
+"path": "res://addons/cloud/Cloud.gd"
+}, {
 "base": "Resource",
 "class": "GoatPartStats",
 "language": "GDScript",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Chunk": "",
+"CloudDome": "",
 "GoatPartStats": "",
 "Interactable": ""
 }
@@ -43,7 +49,7 @@ Events="*res://Events.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/cloud/plugin.cfg" )
 
 [gdnative]
 
